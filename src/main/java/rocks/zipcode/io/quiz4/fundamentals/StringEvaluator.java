@@ -1,45 +1,30 @@
 package rocks.zipcode.io.quiz4.fundamentals;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  * @author leon on 11/12/2018.
  */
 public class StringEvaluator {
+
     public static String[] getAllSubstrings(String str) {
+        Set<String> list = new HashSet<>();
 
-        if(str.length() == 1){
-            List<String> substrings = new ArrayList<String>();
-            substrings.add(str);
-            return substrings.toArray(new String[str.length()]);
+        for(int i = 0; i < str.length(); i++){
+            for(int j = i+1; j <= str.length(); j++){
+                list.add(str.substring(i,j));
+            }
         }
-
-        List<String> substrings = Arrays.asList(getAllSubstrings(str.substring(1)));
-
-        for(int i=1; i<=str.length(); i++)
-            substrings.add(str.substring(0, i));
-
-        return substrings.toArray(new String[str.length()]);
+        return list.toArray(new String[0]);
     }
 
     public static String[] getCommonSubstrings(String s1, String s2) {
-        int MAX_CHAR = 26;
-        boolean v[]=new boolean[MAX_CHAR];
-        Arrays.fill(v,false);
-
-        // increment vector index for every
-        // character of str1
-        for (int i = 0; i < s1.length(); i++)
-            v[s1.charAt(i) - 'a'] = true;
-
-        // checking common substring of str2 in str1
-        for (int i = 0; i < s2.length(); i++)
-            if (v[s2.charAt(i) - 'a'])
-                return true;
-
-        return false;
+        for( int i = Math.min(s1.length(), s2.length()); ; i--) {
+        if(s2.endsWith(s1.substring(0, i))) {
+            String[] strings = {s1.substring(0, i)};
+        }
     }
 }
 
