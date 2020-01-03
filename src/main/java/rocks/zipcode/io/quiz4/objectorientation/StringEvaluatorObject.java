@@ -21,11 +21,10 @@ public class StringEvaluatorObject {
     }
 
     public String[] getCommonSubstrings(String secondInput) {
-        //return StringEvaluator.getCommonSubstrings(secondInput);
-        return null;
+        return StringEvaluator.getCommonSubstrings(secondInput,str1);
     }
 
     public String getLargestCommonSubstring(String secondInput) {
-        return null;
+        return StringEvaluator.getLargestCommonSubstring(secondInput, str1);
     }
 }
